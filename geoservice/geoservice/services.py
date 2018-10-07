@@ -8,7 +8,7 @@ class IpInfoService(object):
     def __init__(self):
         self.ip_repo = IpInfoRepository()
 
-    def get_info(self, ip):
+    def get_info(self, ip): 
         return self.ip_repo.get_ip_info(ip)
 
 
