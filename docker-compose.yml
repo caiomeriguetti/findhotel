@@ -1,0 +1,38 @@
+version: "2.2"
+services:
+
+  rest-api:
+    entrypoint: "/src/rest-api/entrypoint"
+    build:
+      context: .
+      dockerfile: python_env/Dockerfile
+    ports:
+      - 8080:80
+    volumes:
+      - ".:/src"
+    env_file:
+      - .env
+    environment:
+    - "PYTHONPATH=/src/geoservice:/src/rest-api/code"
+
+  geodb:
+    image: mongo
+    volumes:
+      - "./mongodata:/data/db"
+    ports:
+      - 27017:27017
+
+  csv-importer:
+    command: ["echo", "csv-importer"]
+    build:
+      context: .
+      dockerfile: python_env/Dockerfile
+    environment:
+      - PYTHONPATH=/src/geoservice
+    env_file:
+    - .env
+    volumes:
+      - .:/src
+      - /tmp:/tmp
+
+
