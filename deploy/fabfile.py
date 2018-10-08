@@ -25,3 +25,11 @@ def start_services():
 
 def import_csv():
     sudo('cd /home/ubuntu/findhotel_git && ./import_csv.sh')
+
+
+def full_deploy():
+    setup_instance()
+    download_app_files()
+    import_csv()
+    start_services()
+
