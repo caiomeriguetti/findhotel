@@ -22,5 +22,7 @@ Created a VPC
 Created a Internet gateway
 Create a route for 0.0.0.0/0 pointing to internet gateway to provide internet access
 
+```./deploy.sh```
+
 
 
