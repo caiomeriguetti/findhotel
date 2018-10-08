@@ -2,7 +2,7 @@ from fabric.operations import sudo, put
 
 
 def download_app_files():
-    put('/src/deploy/findhotel', '/home/ubuntu/findhotel_key', use_sudo=True)
+    put('/src/deploy/findhotel_git', '/home/ubuntu/findhotel_key', use_sudo=True)
     sudo('eval "$(ssh-agent -s)" && chmod 400 /home/ubuntu/findhotel_key && \
     ssh-add /home/ubuntu/findhotel_key && \
     cd /home/ubuntu && rm -rf findhotel && \
@@ -20,4 +20,8 @@ def setup_instance():
 
 
 def start_services():
-    sudo('cd /home/ubuntu/findhotel && docker-compose up -d --build --force-recreate rest-api geodb')
+    sudo('cd /home/ubuntu/findhotel_git && docker-compose up -d --build --force-recreate rest-api geodb')
+
+
+def import_csv():
+    sudo('cd /home/ubuntu/findhotel_git && ./import_csv.sh')
