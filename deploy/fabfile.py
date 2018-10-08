@@ -6,7 +6,8 @@ def download_app_files():
     sudo('eval "$(ssh-agent -s)" && chmod 400 /home/ubuntu/findhotel_key && \
     ssh-add /home/ubuntu/findhotel_key && \
     cd /home/ubuntu && rm -rf findhotel && \
-    git clone git@github.com:caiomeriguetti/findhotel.git')
+    echo "StrictHostKeyChecking no" >> /etc/ssh/ssh_config && \
+    bash -c \'printf "yes" | git clone git@github.com:caiomeriguetti/findhotel.git\'')
 
 
 def setup_instance():
@@ -20,11 +21,11 @@ def setup_instance():
 
 
 def start_services():
-    sudo('cd /home/ubuntu/findhotel_git && docker-compose up -d --build --force-recreate rest-api geodb')
+    sudo('cd /home/ubuntu/findhotel && docker-compose up -d --build --force-recreate rest-api geodb')
 
 
 def import_csv():
-    sudo('cd /home/ubuntu/findhotel_git && ./import_csv.sh')
+    sudo('cd /home/ubuntu/findhotel && ./import_csv.sh')
 
 
 def full_deploy():
