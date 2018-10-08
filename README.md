@@ -51,3 +51,7 @@ Just to give an example, if you just want to run the installations:
 
 the list of tasks are in /deploy/fabfile.py
 
+# The api endpoint on AWS
+
+http://35.174.212.246:8080/205.8.7.210/info
+
