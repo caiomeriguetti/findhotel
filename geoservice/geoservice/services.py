@@ -40,22 +40,22 @@ class ImportService(object):
 
                 line_parts = line.split(',')
 
-                ip_info = IpInfo().from_list(line_parts)
+                ip_info = self.ip_repo.create_ipinfo_from_list(line_parts)
 
-                if ip_info.ip in imported:
+                if ip_info['ip'] in imported:
                     rejected += 1
                     continue
 
                 try:
-                    float(ip_info.lat)
-                    float(ip_info.lng)
+                    float(ip_info['lat'])
+                    float(ip_info['lng'])
                 except:
                     rejected += 1
                     continue
 
-                imported.add(ip_info.ip)
+                imported.add(ip_info['ip'])
 
-                buffer.append(ip_info.to_dict())
+                buffer.append(ip_info)
 
                 accepted += 1
 
