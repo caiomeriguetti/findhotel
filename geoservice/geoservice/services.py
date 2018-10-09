@@ -1,4 +1,3 @@
-from geoservice.models import IpInfo
 from geoservice.repositories import IpInfoRepository
 import time
 
