@@ -5,9 +5,12 @@ from db import client
 
 class IpInfoRepository(object):
 
+    def geodb(self):
+        return client().geodb
+
     def get_ip_info(self, ip):
-        geodb = client().geodb
-        info = geodb.ip_info.find_one({'ip': ip})
+
+        info = self.geodb().ip_info.find_one({'ip': ip})
 
         if not info:
             return None
@@ -16,12 +19,10 @@ class IpInfoRepository(object):
         return info
 
     def create_indexes(self):
-        geodb = client().geodb
-        geodb.ip_info.create_index([('ip', pymongo.DESCENDING)], unique=True)
+        self.geodb().ip_info.create_index([('ip', pymongo.DESCENDING)], unique=True)
 
     def import_many(self, ip_info_list):
-        geodb = client().geodb
-        geodb.ip_info.insert_many(ip_info_list)
+        self.geodb().ip_info.insert_many(ip_info_list)
 
     def create_ipinfo_from_list(self, list_data):
         return dict(
