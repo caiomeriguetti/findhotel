@@ -22,17 +22,17 @@ this Dockerfile is shared by rest-api and csv_importer
 
 I worked on this solution for 5 hours on Sunday. This was my only available time on the weekend
 
-#deploy
+# deploy
 
 What i did manually in AWS:
 
-Created a VPC
-Created a Internet gateway
-Create a route for 0.0.0.0/0 pointing to internet gateway to provide internet access
-Created a security group for the instance
-Created an elastic ip for the instance
+- Created a VPC
+- Created a Internet gateway
+- Create a route for 0.0.0.0/0 pointing to internet gateway to provide internet access
+- Created a security group for the instance
+- Created an elastic ip for the instance
 
-I know that we can automate the tasks above with CloudFormation, Terraform or other similar technology but i didnt have 
+- I know that we can automate the tasks above with CloudFormation, Terraform or other similar technology but i didnt have 
 enought time to do so.
 
 But, suposing that we have an instance running somewhere else and it is ssh-able(elastic ip 35.174.212.246 is hardcoded in deploy/deploy.py):
