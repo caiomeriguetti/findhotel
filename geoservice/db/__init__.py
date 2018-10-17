@@ -10,6 +10,6 @@ def client():
     global current_client
 
     if not current_client:
-        current_client = MongoClient(os.getenv('MONGO_DB_URI'))
+        current_client = MongoClient(os.getenv('MONGO_DB_URI'), maxPoolSize=1)
 
     return current_client
