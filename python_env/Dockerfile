@@ -12,6 +12,8 @@ RUN pip install falcon \
                 pymongo \
                 fabric==1.14
 
+RUN apt-get install -y net-tools
+
 COPY . /src
 
 WORKDIR /src
