@@ -25,12 +25,13 @@ class IpInfoRepository(object):
         self.geodb().ip_info.insert_many(ip_info_list)
 
     def create_ipinfo_from_list(self, list_data):
+
         return dict(
             ip = list_data[0],
             country_code = list_data[1],
             country_name = list_data[2],
             city = list_data[3],
-            lat = list_data[4],
-            lng = list_data[5],
+            lat = float(list_data[4]),
+            lng = float(list_data[5]),
             mystery_value = list_data[6]
         )

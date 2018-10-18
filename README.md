@@ -58,4 +58,6 @@ http://35.174.212.246:8080/205.8.7.210/info
 # improvements
 
 ok - Control the number of connections to the database
-- Create cloud formation yml 
+- Create cloud formation yml
+- Convert lat and lng to float to do geospatial queries
+- Insert duplicated ips and search sorting by timestamp(mistery value?)
