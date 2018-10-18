@@ -33,5 +33,5 @@ class IpInfoRepository(object):
             city = list_data[3],
             lat = float(list_data[4]),
             lng = float(list_data[5]),
-            mystery_value = list_data[6]
+            mystery_value = int(list_data[6])
         )

@@ -37,6 +37,8 @@ class ImportService(object):
                 if not line:
                     break
 
+                line = line.strip()
+
                 line_parts = line.split(',')
 
                 try:
