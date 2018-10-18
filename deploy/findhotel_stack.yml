@@ -1,0 +1,23 @@
+Resources:
+  FindHotelVPC:
+    Type: AWS::EC2::VPC
+    Properties:
+      CidrBlock: 10.1.0.0/16
+      EnableDnsSupport: true
+      EnableDnsHostnames: true
+
+  FindHotelSubnet:
+    Type: AWS::EC2::Subnet
+    Properties:
+      CidrBlock: 10.1.1.0/24
+      MapPublicIpOnLaunch: true
+      VpcId: !Ref FindHotelVPC
+
+  FindHotelInternetGateway:
+    Type: AWS::EC2::InternetGateway
+
+  InternetAttachment:
+    Type: AWS::EC2::VPCGatewayAttachment
+    Properties:
+      VpcId: !Ref FindHotelVPC
+      InternetGatewayId: !Ref FindHotelInternetGateway
