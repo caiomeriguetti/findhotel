@@ -10,7 +10,8 @@ RUN apt-get update \
 RUN pip install falcon \
                 uwsgi \
                 pymongo \
-                fabric==1.14
+                fabric==1.14 \
+                pinject
 
 RUN apt-get install -y net-tools
 

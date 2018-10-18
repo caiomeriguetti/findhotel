@@ -5,6 +5,13 @@ from db import client
 
 class IpInfoRepository(object):
 
+    def __init__(self):
+        print """
+        
+        New IpInfoRepository instance
+        
+        """
+
     def geodb(self):
         return client().geodb
 

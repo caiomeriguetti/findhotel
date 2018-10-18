@@ -2,13 +2,12 @@ import json
 
 import falcon
 
-from geoservice.services import IpInfoService
-
 
 class IpResource(object):
 
-    def __init__(self):
-        self.ip_service = IpInfoService()
+    def __init__(self, ip_info_service, import_service):
+        self.ip_service = ip_info_service
+        self.import_service = import_service
 
     def on_get(self, req, resp, ip):
 

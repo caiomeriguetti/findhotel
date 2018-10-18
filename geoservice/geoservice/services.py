@@ -1,11 +1,10 @@
-from geoservice.repositories import IpInfoRepository
 import time
 
 
 class IpInfoService(object):
 
-    def __init__(self):
-        self.ip_repo = IpInfoRepository()
+    def __init__(self, ip_info_repository):
+        self.ip_repo = ip_info_repository
 
     def get_info(self, ip):
         return self.ip_repo.get_ip_info(ip)
@@ -13,8 +12,8 @@ class IpInfoService(object):
 
 class ImportService(object):
 
-    def __init__(self):
-        self.ip_repo = IpInfoRepository()
+    def __init__(self, ip_info_repository):
+        self.ip_repo = ip_info_repository
 
     def import_csv(self, file_path):
 
