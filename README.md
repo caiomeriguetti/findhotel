@@ -62,3 +62,4 @@ ok - Control the number of connections to the database
 - Convert lat and lng to float to do geospatial queries
 - Insert duplicated ips and search sorting by timestamp(mistery value?)
 ok - DI: Lower refactoring when constructors changes, avoid unnecessary instantiation of stateless objects
+- Remove the downtime of the deployment
