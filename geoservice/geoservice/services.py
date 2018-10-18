@@ -23,7 +23,6 @@ class ImportService(object):
         # without di
         # self.ip_repo = IpInfoRepository()
 
-
     def import_csv(self, file_path):
 
         start_time = time.time()
